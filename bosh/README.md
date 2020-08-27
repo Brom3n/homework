@@ -43,9 +43,3 @@ bosh -e vbox -d nginx-deploy deploy /example/nginx.yml
 ```bash
 curl -u admin:test http://10.244.0.2
 ```
-A
-A
-A
-A
-A
-```
