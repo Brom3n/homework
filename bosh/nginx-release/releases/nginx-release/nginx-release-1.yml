@@ -1,12 +1,12 @@
-name: nginx
-version: 0+dev.1
-commit_hash: empty
-uncommitted_changes: true
+name: nginx-release
+version: "1"
+commit_hash: 9f50eef
+uncommitted_changes: false
 jobs:
 - name: nginx
-  version: 73118a4cd96d1f7e519bb4e60f0b26c7a898b1517bf98c1cbe42595b066152a6
-  fingerprint: 73118a4cd96d1f7e519bb4e60f0b26c7a898b1517bf98c1cbe42595b066152a6
-  sha1: sha256:faeac54dda79c96534be1fbf0f9f0c665af2a5b9fedd0381ec09c6fb1674c790
+  version: 145b6f738631708cd6a0db911ce0f49f7d5eef66e94842fd555a8afad0067a13
+  fingerprint: 145b6f738631708cd6a0db911ce0f49f7d5eef66e94842fd555a8afad0067a13
+  sha1: sha256:8abe7aa96302309b9f2a80e27ed8e2f022b10841d5b3d48307a2b54048de33db
   packages:
   - nginx-1.17.3
 packages:
