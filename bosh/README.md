@@ -1,23 +1,51 @@
 # anynines Homework
 
-This repository was created to help you to prepare for an interview or work sample.
+This release assumes you have a Bosh director environment running, see https://bosh.io/docs/bosh-lite/
+It will start a nginx-webserver showing an empty page protected by basic authorization.
 
-If you do not understand a step, please contact human resources.
+## update cloud-config
 
-## BOSH Introduction
+```bash
+bosh -e vbox update-cloud-config ~/workspace/bosh-deployment/warden/cloud-config.yml
+```
 
-Read the [introduction to BOSH](https://bosh.io/docs#intro).
+## upload stemcell
 
-## Setup BOSH Lite
+```bash
+bosh -e vbox upload-stemcell --sha1 3bec82d41f34106a3687386e65e528aa17171080 \
+  https://bosh.io/d/stemcells/bosh-warden-boshlite-ubuntu-xenial-go_agent?v=621.82
+```
 
-Go to [https://github.com/cloudfoundry/bosh-deployment](https://github.com/cloudfoundry/bosh-deployment) and install BOSH Lite on your local machine.
+## clone repository
 
-## Create nginx BOSH Release
+```bash
+cd ~/workspace
+git clone https://github.com/Brom3n/homework.git
+cd homework/bosh/nginx-release
+```
 
-Read the section [Using BOSH to package and distribute software](https://bosh.io/docs#release).
-Then create a BOSH release for nginx. It should display an empty page that is protected by basic authentication.
-Please fork this repository into your GitHub workspace and push your source code to the new repository.
+## upload release 
 
-There should be a sample deployment file (e.g. *examples/nginx.yml*) that we can execute to test your BOSH release.
-Please provide a README.md (markdown) in the top directory on how to test your BOSH release with `curl`.
+```bash
+bosh -e vbox upload-release
+```
 
+## deploy release
+
+This assumes that you are in the /homework/bosh/nginx-release directory
+
+```bash
+bosh -e vbox -d nginx-deploy deploy /example/nginx.yml
+```
+
+## test release via curl
+
+```bash
+curl -u admin:test http://10.244.0.2
+```
+A
+A
+A
+A
+A
+```
